@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: mci
+  description: MyText
+  price: 9.99
+  image_url: city3.jpg
+
+two:
+  title: bvb
+  description: MyText
+  price: 9.99
+  image_url: bor1.jpg

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @shirt.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= raw @shirt.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shirt.price %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @shirt.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_shirt_path(@shirt) %> |
+<%= link_to 'Back', shirts_path %>

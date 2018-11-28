@@ -1,0 +1,29 @@
+<h1>Toutes nos catalogues</h1>
+
+    
+<% cache @shirts do %>      
+    <% @shirts.each do |shirt| %>
+        <% cache shirt do %>    
+            <div class="row mb-4">
+                <div class="card w-50 bg-light">
+                    <div class="card-body">
+                        <h2 class="card-title"><%= shirt.title %></h2>
+                            has_many :line_items, dependent: :nullify  
+                            <div class="row">
+                                <div class="col-6">
+                                    <%= image_tag(shirt.image_url, width: "200") %>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-text"><%= sanitize(shirt.description) %></div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="card-footer text-center font-weight-bold">
+                        <%= number_to_currency shirt.price, unit: '€', separator: ',', format: '%n %u' %>
+                        <%= button_to 'Ajouter au panier', line_items_path(shirt_id: shirt), class: 'btn btn-primary' %>
+                        </div>
+                </div>
+            </div>
+        <% end %> 
+    <% end %>
+<% end %>

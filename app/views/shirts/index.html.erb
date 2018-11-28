@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shirts</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shirts.each do |shirt| %>
+      <tr>
+        <td><%= shirt.title %></td>
+        <td><%= truncate strip_tags(shirt.description), length: 80 %></td>
+        <td><%= number_to_currency shirt.price, unit: "€", separator: ",", format: "%n%u" %></td>
+        <td><%= image_tag shirt.image_url, width: 50%></td>
+        <td><%= link_to 'Show', shirt, class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Edit', edit_shirt_path(shirt), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', shirt, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shirt', new_shirt_path %>
